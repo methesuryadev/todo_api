@@ -47,5 +47,5 @@ app.get(base + '/todo/list',todo.listTodos)
 app.post(base + '/todo/create',todo.createTodo)
 app.post(base + '/todo/edit',todo.editTodo)
 app.post(base + '/todo/update',todo.updateTodo)
-// app.post(base + '/todo/delete',todo.delete_role)
+app.post(base + '/todo/delete',todo.deleteTodo)
 

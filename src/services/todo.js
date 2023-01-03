@@ -68,9 +68,38 @@ async function updateTodo(req,res,next) {
       });
 }
 
+// TODO: update data from single row
+async function deleteTodo(req,res,next) {
+    console.log(req.body)
+    let id=req.body.id
+
+    let data=await knex(table)
+    .where('id',id).del()
+    .then(function (count) {
+        if(count){
+          res.status(200).json({
+            error: false,
+            message: "Data Deleted Successfully."
+          });
+          }else{
+             res.status(200).json({
+                error: true,
+                message: "Something Went Wrong"
+              });
+          }
+        }).catch(error => {
+          res.status(200).json({
+            error: true,
+            message: error.message
+          }); 
+        });
+}
+
+
 module.exports ={
     listTodos,
     createTodo,
     editTodo,
-    updateTodo
+    updateTodo,
+    deleteTodo
 }
