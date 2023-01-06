@@ -13,9 +13,10 @@ const dbconfig = {
 }
 
 const BASE_URL = process.env.base_url
-
+const JWT_SECRET_KEY = "sads@34&%sAHDGdf"
 module.exports = {
   port,
   dbconfig,
   BASE_URL,
+  JWT_SECRET_KEY
 }

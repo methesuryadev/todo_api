@@ -4,6 +4,7 @@ const helmet = require('helmet')
 const app = express()
 const constants = require('./helpers/constants')
 const todo= require('./services/todo.js')
+const jwtApp= require('./services/JwtApi.js')
 const cors = require('cors');
 const port = constants.port
 const base = constants.BASE_URL;
@@ -48,4 +49,5 @@ app.post(base + '/todo/create',todo.createTodo)
 app.post(base + '/todo/edit',todo.editTodo)
 app.post(base + '/todo/update',todo.updateTodo)
 app.post(base + '/todo/delete',todo.deleteTodo)
+app.post(base + '/login/token',jwtApp.jwtLogin)
 
